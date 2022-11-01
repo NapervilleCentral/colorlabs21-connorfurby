@@ -33,7 +33,7 @@ public class TestPicture17
      Picture ferris2 = new Picture("images/2000 ferris wheel2.jpg");
      Picture ferris3 = new Picture("images/2000 ferris wheel2.jpg");
 
-     //apic.explore();
+     apic.explore();
      ferris1.explore();
      
      //makes an array of pixels
@@ -45,7 +45,7 @@ public class TestPicture17
     System.out.println("This is a large array"+pixels.length  );
 
 
-    /**/
+     /**/
         //access each index
     System.out.println(pixels[17]);
     //access each pixel
