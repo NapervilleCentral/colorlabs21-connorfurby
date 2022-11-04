@@ -20,9 +20,9 @@ public class TestPicture17
   {
       //opens picture using a dialog box
       /**/
-     String fileName = FileChooser.pickAFile();
-     Picture pictObj = new Picture(fileName);
-     pictObj.explore();
+     //String fileName = FileChooser.pickAFile();
+     //Picture pictObj = new Picture(fileName);
+     //pictObj.explore();
 
      //opens a pictue using a path
      //Picture apic = new Picture("C:\\Users\\khayes\\Favorites\\Documents\APCS- Java\chap03\Curriclum 2013\Picture Color labs\images\\beach.jpg");
@@ -30,46 +30,85 @@ public class TestPicture17
      //relative path
      Picture apic = new Picture("images\\beach.jpg"); // method does something
      Picture ferris1 = new Picture("images/2000 ferris wheel2.jpg");
-     Picture ferris2 = new Picture("images/2000 ferris wheel2.jpg");
+     Picture cute = new Picture("images/kitten2.jpg");
      Picture ferris3 = new Picture("images/2000 ferris wheel2.jpg");
 
      apic.explore();
      ferris1.explore();
      
-     //makes an array of pixels
+     //makes an array of pixels -- GIVEN YOU NEED THIS
      Pixel[] pixels;
      //gets pixels from picture and assigns to pixels array
-     pixels = ferris1.getPixels();
+     pixels = ferris1.getPixels(); //GET ALL THE PIXELS
     
      //how many pixels or how large array
-    System.out.println("This is a large array"+pixels.length  );
+    System.out.println("This is a large array" + pixels.length);
 
 
      /**/
         //access each index
     System.out.println(pixels[17]);
-    //access each pixel
-    Pixel spot = ferris1.getPixel(100,100);
-    
-    System.out.println(pixels[17].getColor());
-    System.out.println(spot);
+    pixels[17].setColor(Color.yellow);
+    pixels[18].setColor(Color.white);
+    //Pixel spot = ferris1.getPixel(100,100);
+    //System.out.println(pixels[17].getColor());
+    //System.out.println(spot);
 /*
     pixels[17].setColor(Color.blue);
     spot.setColor(new Color(252,252,252));
     pixels[500034].setColor(Color.blue);
+*/
+    //displays changes I made
+    //ferris1.explore();
 
-    ferris1.explore();
-/*
    // loop to access indexes of array or collection
 
-    //for each loop spot  is a ?
+    //for each loop spot  is a GIVEN USE LOOK TO CHANGE ENTIRE PICTURE
+    int count = 0;
+    ///Color myFav = new Color(34, 34, 34);
+    
     for (Pixel spot : pixels)
-    System.out.println( spot );
-
-
-   
- /**/
-
+    {
+        //System.out.println( spot );
+        spot.setRed((int)(spot.getRed() * .5));
+        if (count % 2 == 0)
+        {
+            spot.setColor(Color.green);
+        }
+        if (count % 2 == 1)
+        {
+            spot.setColor(new Color(218, 112, 214));
+        }
+        count++;
+    }
+    ferris1.explore();
+    
+ /**
+  * Messing with the color of the cat, hope he does not bite
+  */
+ 
+    //makes an array of pixels -- GIVEN YOU NEED THIS
+     Pixel[] pixelsC;
+     //gets pixels from picture and assigns to pixels array
+     pixelsC = cute.getPixels(); //GET ALL THE PIXELS
+ 
+     for (Pixel spotC: pixelsC)
+    {
+        int r = spotC.getRed();
+        int g = spotC.getGreen();
+        int b = spotC.getBlue();
+        
+        //black = (0,0,0)
+        if (r <= 26 && g <= 27 && b <= 31)
+        {
+            spotC.setRed(128);
+            spotC.setGreen(0);
+            spotC.setBlue(0);
+        }
+        
+    }
+    cute.explore();
+    
  /**
   * Method to clear red from picture
   * @param none
