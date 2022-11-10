@@ -105,9 +105,16 @@ public class colorLab
         Picture bluemark7 = new Picture("images/blue-mark.jpg");
         Pixel[] pixels7;
         pixels7 = bluemark7.getPixels();
+        int newGreen, newRed, newBlue;
         for (Pixel spot : pixels7)
         {
-            
+            currRed = spot.getRed();
+            currGreen = spot.getGreen();
+            currBlue = spot.getBlue();
+            newGreen = currRed;
+            newRed = currGreen;
+            Color currColor = new Color(newRed, newGreen, currBlue);
+            spot.setColor(currColor);
         }
         bluemark7.explore();
         
@@ -117,7 +124,14 @@ public class colorLab
         pixels8 = bluemark8.getPixels();
         for (Pixel spot : pixels8)
         {
-            
+            currRed = spot.getRed();
+            currGreen = spot.getGreen();
+            currBlue = spot.getBlue();
+            newRed = currGreen;
+            newGreen = currBlue;
+            newBlue = currRed;
+            Color currColor = new Color(newRed, newGreen, newBlue);
+            spot.setColor(currColor);
         }
         bluemark8.explore();
         
