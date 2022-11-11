@@ -18,6 +18,28 @@ public class SheparFaireyLab
          Color lightblue = new Color(113,150,159);
          Color red = new Color(216, 25, 33);
          Color darkblue = new Color(0, 53,81);
+         /*
+         Color color1 = new Color(207, 245, 231);
+         Color color2 = new Color(160, 228, 203);
+         Color color3 = new Color(89, 193, 189);
+         Color color4 = new Color(13, 76, 146);
+         */
+        int add = 0;
+        /*
+         Color color1 = new Color(0 + add, 150 + add, 98 + add);
+         Color color2 = new Color(0 + add, 136 + add, 113 + add);
+         Color color3 = new Color(0 + add, 120 + add, 120 + add);
+         Color color4 = new Color(0 + add, 104 + add, 117 + add);
+         Color color5 = new Color(25 + add, 88 + add, 106 + add);
+         Color color6 = new Color(47 + add, 72 + add, 88 + add);
+         */
+         
+         Color color1 = new Color(82 + add, 255 + add, 127 + add);
+         Color color2 = new Color(0 + add, 226 + add, 255 + add);
+         Color color3 = new Color(255 + add, 95 + add, 119 + add);
+         Color color4 = new Color(0 + add, 170 + add, 255 + add);
+         Color color5 = new Color(74 + add, 93 + add, 142 + add);
+         Color color6 = new Color(61 + add, 74 + add, 62 + add);
          /**
           * method 1 change
           */
@@ -25,7 +47,7 @@ public class SheparFaireyLab
          Pixel[] pixels1;
          pixels1 = me1.getPixels();
          me1.explore();
-         int avg, currRed, currGreen, currBlue, bucket1max, bucket2max, bucket3max, bucket4max, currGreyColor;
+         int avg, currRed, currGreen, currBlue, bucket1max, bucket2max, bucket3max, bucket4max, bucket5max, bucket6max, currGreyColor;
         for (Pixel spot : pixels1)
         {
             currRed = spot.getRed();
@@ -60,6 +82,8 @@ public class SheparFaireyLab
         }
         me1.explore();
         me1.write("images/sf1.jpg");
+        
+        
          /**
           * method 2 change 
           */
@@ -111,7 +135,58 @@ public class SheparFaireyLab
          /**
           * custom color palette
           */
-
-         
+         Picture me3 = new Picture("images/connorfurby.jpg");
+         Pixel[] pixels3;
+         pixels3 = me3.getPixels();
+          for (Pixel spot : pixels3)
+        {
+            currRed = spot.getRed();
+            currGreen = spot.getGreen();
+            currBlue = spot.getBlue();
+            currIntensity = (currRed + currGreen + currBlue);
+            if (currIntensity > b)
+                b = currIntensity;
+            if (currIntensity < s)
+                s = currIntensity;
+        }
+        totalminmax = b - s;
+        bucket2max = ((totalminmax / 6) * 5) + s;
+        bucket3max = ((totalminmax / 6) * 4) + s;
+        bucket4max = ((totalminmax / 6) * 3) + s;
+        bucket5max = ((totalminmax / 6) * 2) + s;
+        bucket6max = ((totalminmax / 6) * 1) + s;
+        for (Pixel spot : pixels3)
+        {
+            currRed = spot.getRed();
+            currGreen = spot.getGreen();
+            currBlue = spot.getBlue();
+            currIntensity = (currRed + currGreen + currBlue);
+            if (currIntensity > bucket2max)
+            {
+                spot.setColor(color1);
+            }
+            else if (currIntensity > bucket3max)
+            {
+                spot.setColor(color2);
+            }
+            else if (currIntensity > bucket4max)
+            {
+                spot.setColor(color3);
+            }
+            else if (currIntensity > bucket5max)
+            {
+                spot.setColor(color4);
+            }
+            else if (currIntensity > bucket6max)
+            {
+                spot.setColor(color5);
+            }
+            else
+            {
+                spot.setColor(color6);
+            }
+        }
+        me3.explore();
+        me3.write("images/sfTry2.jpg");
     }//main       
 }//class
