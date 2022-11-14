@@ -34,12 +34,13 @@ public class SheparFaireyLab
          Color color6 = new Color(47 + add, 72 + add, 88 + add);
          */
          
-         Color color1 = new Color(82 + add, 255 + add, 127 + add);
-         Color color2 = new Color(0 + add, 226 + add, 255 + add);
-         Color color3 = new Color(255 + add, 95 + add, 119 + add);
-         Color color4 = new Color(0 + add, 170 + add, 255 + add);
-         Color color5 = new Color(74 + add, 93 + add, 142 + add);
-         Color color6 = new Color(61 + add, 74 + add, 62 + add);
+         // Color color1 = new Color(82 + add, 255 + add, 127 + add); // light green
+         Color color2 = new Color(0 + add, 226 + add, 255 + add);  // light blue
+         Color color3 = new Color(0 + add, 255 + add, 50 + add); // green
+         Color color1 = new Color(255 + add, 182 + add, 193 + add); // light pink
+         Color color4 = new Color(0 + add, 170 + add, 255 + add); // blue
+         Color color5 = new Color(74 + add, 93 + add, 142 + add); // navy blue
+         Color color6 = new Color(61 + add, 74 + add, 62 + add); // dark green
          /**
           * method 1 change
           */
@@ -150,10 +151,10 @@ public class SheparFaireyLab
                 s = currIntensity;
         }
         totalminmax = b - s;
-        bucket2max = ((totalminmax / 6) * 5) + s;
+        bucket2max = ((totalminmax / 6) * 5) + s - 55;
         bucket3max = ((totalminmax / 6) * 4) + s;
-        bucket4max = ((totalminmax / 6) * 3) + s;
-        bucket5max = ((totalminmax / 6) * 2) + s;
+        bucket4max = ((totalminmax / 6) * 3) + s - 20;
+        bucket5max = ((totalminmax / 6) * 2) + s + 20;
         bucket6max = ((totalminmax / 6) * 1) + s;
         for (Pixel spot : pixels3)
         {
@@ -187,6 +188,6 @@ public class SheparFaireyLab
             }
         }
         me3.explore();
-        me3.write("images/sfTry2.jpg");
+        //me3.write("images/sfTry3.jpg");
     }//main       
 }//class
